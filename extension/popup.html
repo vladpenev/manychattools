@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Modern CSS Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      width: 280px;
+      padding: 16px;
+      background: #fafafa;
+      color: #1a1a1a;
+    }
+
+    /* Modern Card Container */
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+
+    /* Modern Button */
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #0070f3;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #0051cc;
+    }
+
+    /* Modern Checkbox Container */
+    .checkbox-container {
+      margin: 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Modern Checkbox */
+    .checkbox-container input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      accent-color: #0070f3;
+      cursor: pointer;
+    }
+
+    .checkbox-container label {
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* Modern Input Container */
+    .input-container {
+      margin: 16px 0;
+    }
+
+    .input-container label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Modern Number Input */
+    .input-container input[type="number"] {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.2s ease;
+    }
+
+    .input-container input[type="number"]:focus {
+      outline: none;
+      border-color: #0070f3;
+      box-shadow: 0 0 0 2px rgba(0,112,243,0.1);
+    }
+
+    /* Title */
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: #e0e0e0;
+      margin: 16px 0;
+    }
+
+    /* Toast Container */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+    }
+
+    .toast {
+      background: #323232;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      margin: 8px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      animation: slideIn 0.2s ease-out;
+    }
+
+    .toast.success {
+      background: #10B981;
+    }
+
+    .toast.error {
+      background: #EF4444;
+    }
+
+    .toast.info {
+      background: #3B82F6;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 class="title">ManyChat Tools</h1>
+    
+    <button id="downloadBtn">Download HTML</button>
+    
+    <div class="divider"></div>
+    
+    <div class="checkbox-container">
+      <input type="checkbox" id="clipboardFeature">
+      <label for="clipboardFeature">Enable clipboard append</label>
+    </div>
+    
+    <div class="input-container">
+      <label for="charCount">Minimum characters</label>
+      <input 
+        type="number" 
+        id="charCount" 
+        min="0" 
+        step="1" 
+        placeholder="Enter minimum characters..."
+      >
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="checkbox-container">
+      <input type="checkbox" id="autoScrollFeature">
+      <label for="autoScrollFeature">Enable auto-scroll</label>
+    </div>
+
+    <div class="checkbox-container">
+      <input type="checkbox" id="selectAndCopyFeature">
+      <label for="selectAndCopyFeature">Select + Copy</label>
+    </div>
+
+    <button id="selectAllBtn">Select All Messages</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
